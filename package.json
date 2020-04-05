@@ -1,0 +1,26 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather api rest with express",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcosRissottoB/weather-api.git"
+  },
+  "author": "Marcos Rissotto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarcosRissottoB/weather-api/issues"
+  },
+  "homepage": "https://github.com/MarcosRissottoB/weather-api#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "express-ip": "^1.0.4",
+    "nodemon": "^2.0.2"
+  }
+}
