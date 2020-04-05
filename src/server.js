@@ -4,7 +4,7 @@ const expressip = require('express-ip');
 
 // Routes
 const routes = require('./routes/index.routes');
-const openWeatherMapRoutes = require('./routes/index.routes');
+const openWeatherMapRoutes = require('./routes/openWeatherMap.routes');
 
 // Settings
  app.set('port', process.env.PORT || 5000);

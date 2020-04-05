@@ -5,7 +5,7 @@ const getLocalIp = (req) => {
     console.log('---- ip -----', ip);
 }
 
-const getCityByIp = (req) => {
+const getCityByIp = async (req) => {
     let ip = getLocalIp(req);
     const { data } = await axios.get(`https://ipapi.co/${ip}/json/`);
     console.log(' ---- data ----', data);
