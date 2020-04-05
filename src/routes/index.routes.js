@@ -1,18 +1,8 @@
 const { Router } = require('express');
-
 const router = Router();
 
-// Controllers
-const OpenWeatherMapController = require('./../controllers/openWeatherMap.controller');
-
-router.get('/location', OpenWeatherMapController.getWeatherLocation);
-
-router.get('/current/:city?', (req, res) => {
-    res.json('current');
-})
-
-router.get('/forecast/:city?', (req, res) => {
-    res.json('forecast');
-})
+router.get('/', (req, res) => {
+    res.json('Welcome to weather api');
+});
 
 module.exports = router;
