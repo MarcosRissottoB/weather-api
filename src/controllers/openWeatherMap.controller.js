@@ -1,4 +1,4 @@
-const OpenWeatherMapService = require('./../services/open-weather-map.service');
+const OpenWeatherMapService = require('../services/openWeatherMap.service');
 
 const getWeatherLocation = async (req, res) => {
     try {

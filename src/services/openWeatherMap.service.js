@@ -1,5 +1,5 @@
 const axios = require('axios')
-const openWeatherMapConfig = require('./../config/openWeatherMap.config');
+const openWeatherMapConfig = require('../config/openWeatherMap.config');
 const IpService = require('./ipapi.service');
 
 const getCity = async (req) => {
