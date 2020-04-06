@@ -3,7 +3,7 @@ const openWeatherMapConfig = require('./../config/openWeatherMap.config');
 const IpService = require('./ipapi.service');
 
 const getCity = async (req) => {
-  const city = await IpService.getCityByIp(req);
+  const { city } = await IpService.getCityByIp(req);
   return city;
 }
 
@@ -21,7 +21,7 @@ const getForecast = async (city) => {
 
 const getWeatherLocation = async (req) => {
   try {
-    const { city } = await getCity(req);
+    const city = await getCity(req);
     const weather = await getWeather(city);
     return weather;
   } catch(e) {
@@ -32,10 +32,9 @@ const getWeatherLocation = async (req) => {
 const getWeatherCurrentCity = async (req) => {
   try {
     const { city } = req.query;
-    let encodeCity = encodeURI( city );
     let weather = {};
-    encodeCity ? 
-      weather = await getWeather(encodeCity)
+    city ? 
+      weather = await getWeather(city)
       : weather = await getWeatherLocation(req);
     return weather;
   } catch(e) {
@@ -45,12 +44,12 @@ const getWeatherCurrentCity = async (req) => {
 
 const getWeatherForecast = async (req) => {
   try {
-    const { city } = req.query;
-    let encodeCity = encodeURI( city );
+    let { city } = req.query;
     let forecast = {};
-    encodeCity ? 
-      forecast = await getForecast(encodeCity)
-      : forecast = { message: 'Debe ingresar una ciudad', cnt: 0 };
+    if (!city) {
+      city = await getCity(req);
+    }
+    forecast = await getForecast(city);
     return forecast;
   } catch(e) {
     throw new Error(e.message)
