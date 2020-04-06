@@ -20,7 +20,7 @@ Api rest with node and express
   * visit http://localhost:5000/api/v1
       /location
       /current?city
-      /forecast
+      /forecast?city
       
 # Link to Postman collection
 https://www.getpostman.com/collections/f4d95c4044ef3330d2d1
