@@ -1,10 +1,9 @@
 const OpenWeatherMapService = require('./../services/open-weather-map.service');
 
-const getWeatherLocation = async (req, res, next) => {
+const getWeatherLocation = async (req, res) => {
     try {
         let weather = await OpenWeatherMapService.getWeatherLocation(req);
         res.json(weather);
-        next();
     }
     catch (err) {
         console.log('ingresa al controller: error', err);
@@ -12,24 +11,29 @@ const getWeatherLocation = async (req, res, next) => {
     }
 }
 
-// getCurrentCity() {
-//     try {
-
-//     }
-//     catch (err) {
-//         res.status(500).send(err)
-//     }
-// }
-
-// getForecast() {
-//     try {
-
-//     }
-//     catch (err) {
-//         res.status(500).send(err)
-//     }
-// }
+const getWeatherCurrentCity = async (req, res) => {
+    try {
+        let weather = await OpenWeatherMapService.getWeatherCurrentCity(req);
+        res.json(weather);
+    }
+    catch (err) {
+        console.log('ingresa al controller: error', err);
+        res.status(500).send(err)
+    }
+}
+const getWeatherForecast = async (req, res) => {
+    try {
+        let forecast = await OpenWeatherMapService.getWeatherForecast(req);
+        res.json(forecast);
+    }
+    catch (err) {
+        console.log('ingresa al controller: error', err);
+        res.status(500).send(err)
+    }
+}
 
 module.exports = {
-    getWeatherLocation
+    getWeatherLocation,
+    getWeatherCurrentCity,
+    getWeatherForecast
 };
