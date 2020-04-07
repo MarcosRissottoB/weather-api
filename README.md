@@ -16,6 +16,9 @@ Api rest with node and express
 # Run project
   * npm start
 
+# Run test
+  * npm run test
+ 
 # GET Routes
   * visit http://localhost:5000/api/v1
       /location
