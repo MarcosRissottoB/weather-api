@@ -10,7 +10,7 @@ const getCity = async (req) => {
 const getWeather = async (city) => {
   const url = `${openWeatherMapConfig.baseUrl}weather?q=${city},&appid=${openWeatherMapConfig.apiKey}&units=metric`;
   const { data } = await axios.get(url);
-  return data.main;
+  return data;
 }
 
 const getForecast = async (city) => {
@@ -22,8 +22,8 @@ const getForecast = async (city) => {
 const getWeatherLocation = async (req) => {
   try {
     const city = await getCity(req);
-    const weather = await getWeather(city);
-    return weather;
+    const data = await getWeather(city);
+    return data;
   } catch(e) {
     throw new Error(e.message);
   }
@@ -32,11 +32,11 @@ const getWeatherLocation = async (req) => {
 const getWeatherCurrentCity = async (req) => {
   try {
     const { city } = req.query;
-    let weather = {};
+    let data = {};
     city ? 
-      weather = await getWeather(city)
-      : weather = await getWeatherLocation(req);
-    return weather;
+    data = await getWeather(city)
+      : data = await getWeatherLocation(req);
+    return data;
   } catch(e) {
     throw new Error(e.message)
   }
@@ -45,12 +45,12 @@ const getWeatherCurrentCity = async (req) => {
 const getWeatherForecast = async (req) => {
   try {
     let { city } = req.query;
-    let forecast = {};
+    let data = {};
     if (!city) {
       city = await getCity(req);
     }
-    forecast = await getForecast(city);
-    return forecast;
+    data = await getForecast(city);
+    return data;
   } catch(e) {
     throw new Error(e.message)
   }
@@ -59,5 +59,7 @@ const getWeatherForecast = async (req) => {
 module.exports = {
   getWeatherLocation,
   getWeatherCurrentCity,
-  getWeatherForecast
+  getWeatherForecast,
+  getWeather,
+  getForecast
 }

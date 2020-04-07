@@ -7,11 +7,11 @@ const routes = require('./routes/index.routes');
 const openWeatherMapRoutes = require('./routes/openWeatherMap.routes');
 
 // Settings
- app.set('port', process.env.PORT || 5000);
- app.set('trust proxy', true);
+app.set('port', process.env.PORT || 5000);
+app.set('trust proxy', true);
 
- // Middlewares
- app.use(expressip().getIpInfoMiddleware);
+// Middlewares
+app.use(expressip().getIpInfoMiddleware);
 
 //Config headers http.
 app.use( (req, res, next) =>{

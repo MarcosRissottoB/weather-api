@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const getLocalIp = (req) => {
-    // This ip does not work
+    // This ip does not work in local
     const { ip } = req.ipInfo;
 }
 

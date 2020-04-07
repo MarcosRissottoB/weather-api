@@ -2,32 +2,26 @@ const OpenWeatherMapService = require('../services/openWeatherMap.service');
 
 const getWeatherLocation = async (req, res) => {
     try {
-        let weather = await OpenWeatherMapService.getWeatherLocation(req);
-        res.json(weather);
-    }
-    catch (err) {
-        console.log('ingresa al controller: error', err);
+        let data = await OpenWeatherMapService.getWeatherLocation(req);
+        res.send(data);
+    } catch (err) {
         res.status(500).send(err)
     }
 }
 
 const getWeatherCurrentCity = async (req, res) => {
     try {
-        let weather = await OpenWeatherMapService.getWeatherCurrentCity(req);
-        res.json(weather);
-    }
-    catch (err) {
-        console.log('ingresa al controller: error', err);
+        let data = await OpenWeatherMapService.getWeatherCurrentCity(req);
+        res.send(data);
+    } catch (err) {
         res.status(500).send(err)
     }
 }
 const getWeatherForecast = async (req, res) => {
     try {
-        let forecast = await OpenWeatherMapService.getWeatherForecast(req);
-        res.json(forecast);
-    }
-    catch (err) {
-        console.log('ingresa al controller: error', err);
+        let data = await OpenWeatherMapService.getWeatherForecast(req);
+        res.send(data);
+    } catch (err) {
         res.status(500).send(err)
     }
 }
