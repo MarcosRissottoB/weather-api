@@ -25,5 +25,14 @@ Api rest with node and express
       /current?city
       /forecast?city
       
+# Docker
+  * Build images:
+    docker build -t node-weather-api .
+  * Create container
+    docker run -p 5001:5000 -d username/repository:tag
+  * Logs
+    docker logs
+  * Visit url: http://localhost:5001/api/v1
+
 # Link to Postman collection
 https://www.getpostman.com/collections/f4d95c4044ef3330d2d1
