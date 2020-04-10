@@ -1,0 +1,12 @@
+on: push
+name: Execute test in doing push
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone and checkout by the local branch
+        uses: actions/checkout@v1
+      - name: Install dependencies
+        run: npm install
+      - name: Execute tests
+        run: npm run test
