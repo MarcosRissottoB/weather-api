@@ -4,6 +4,8 @@ Api rest with node and express
 # Features
   * Express
   * Rest API
+  * Docker
+  * Github actions
   
 # Requirements
   * node & npm
@@ -33,6 +35,9 @@ Api rest with node and express
   * Logs
     docker logs
   * Visit url: http://localhost:5001/api/v1
+ 
+# Github action
+ * Execute tests in doing push
 
 # Link to Postman collection
 https://www.getpostman.com/collections/f4d95c4044ef3330d2d1
