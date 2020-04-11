@@ -7,7 +7,6 @@ const routes = require('./routes/index.routes');
 const openWeatherMapRoutes = require('./routes/openWeatherMap.routes');
 
 // Settings
-app.set('port', process.env.PORT || 5000);
 app.set('trust proxy', true);
 
 // Middlewares
