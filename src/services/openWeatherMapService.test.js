@@ -17,7 +17,7 @@ describe('Check Open Weather map services ', () => {
     it('Get forecast method', async () => {
         const city = 'London';
         const res = await openWeatherMapService.getForecast(city)
-        expect(res.cnt).not.toBe(0);
+        expect(res.cnt).not.toBe(200);
         expect(res.city.country).toContain('GB')
     })
 });
