@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { BASE_URL, API_KEY } = require('./../config/environments');
+const openWeatherMapConfig = require('../config/openWeatherMap.config');
 const IpService = require('./ipapi.service');
 
 const getCity = async (req) => {
@@ -8,13 +8,13 @@ const getCity = async (req) => {
 }
 
 const getWeather = async (city) => {
-  const url = `${BASE_URL}weather?q=${city},&appid=${API_KEY}&units=metric`;
+  const url = `${openWeatherMapConfig.baseUrl}weather?q=${city},&appid=${openWeatherMapConfig.apiKey}&units=metric`;
   const { data } = await axios.get(url);
   return data;
 }
 
 const getForecast = async (city) => {
-  const url = `${BASE_URL}forecast?q=${city},&appid=${API_KEY}&units=metric`;
+  const url = `${openWeatherMapConfig.baseUrl}forecast?q=${city},&appid=${openWeatherMapConfig.apiKey}&units=metric`;
   const { data } = await axios.get(url);
   return data;
 }
