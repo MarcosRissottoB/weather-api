@@ -12,6 +12,12 @@ app.set('trust proxy', true);
 
 // Middlewares
 app.use(expressip().getIpInfoMiddleware);
+app.use( (err, req, res, next) => {
+    console.log(err);
+    const status = err.statusCode || 500;
+    const message = err.message;
+    res.status(status).send(message);
+});
 
 //Config headers http.
 app.use( (req, res, next) =>{
