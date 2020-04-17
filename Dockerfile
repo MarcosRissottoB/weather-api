@@ -1,6 +1,6 @@
 FROM node:12
 
-WORKDIR /usr/src/weahter_api
+WORKDIR /usr/src/weather_api
 
 COPY package*.json ./
 
